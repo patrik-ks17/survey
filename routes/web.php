@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SurveyController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,3 +19,8 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+Route::get('survey/create', [SurveyController::class, 'create']);
+Route::post('survey', [SurveyController::class, 'store']);
+Route::get('survey/{survey}', [SurveyController::class, 'show']);
