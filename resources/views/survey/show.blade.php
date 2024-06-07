@@ -7,8 +7,8 @@
 
     <div class="py-12">
         <div class="max-w-xl mx-auto sm:px-6 lg:px-8">
-            <div class="border p-4">
-                
+            <div class="p-4 border">
+                <a class="btn btn-dark" href="/survey/{{$survey->id}}/questions/create">Add Question</a>
             </div>
         </div>
     </div>
