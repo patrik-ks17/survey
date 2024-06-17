@@ -32,6 +32,8 @@ class SurveyController extends Controller
     }
 
     public function show(Survey $survey) {
+        $survey->load('questions.answers');
+
         return view('survey.show', compact('survey'));
     }
 }
