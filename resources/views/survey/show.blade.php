@@ -8,7 +8,8 @@
     <div class="py-10 text-center">
         <div class="max-w-sm mx-auto sm:px-5 lg:px-6">
             <a class="btn btn-dark" href="/survey/{{$survey->id}}/questions/create">Add Question</a>
-            <a class="btn btn-dark ml-3" href="/surveys/{{ $survey->id }}-{{ Str::slug($survey->title) }}">Take Survey</a>
+            <a class="btn btn-dark ml-3" href="/surveys/{{ $survey->id }}-{{ Str::slug($survey->title) }}">Take
+                Survey</a>
         </div>
 
         @foreach ($survey->questions as $question)
@@ -16,7 +17,13 @@
             <div class="card-header">{{ $question->question }}</div>
             <ul class="list-group">
                 @foreach ($question->answers as $answer)
-                <li class="list-group-item">{{ $answer->answer }}</li>
+                <li class="list-group-item inline-flex justify-between">
+                    <div class="mr-2">{{ $answer->answer }}</div>
+                    {{-- <small>{{ $answer->responses->count() }} / {{ $question->responses->count() }}</small> --}}
+                    @if ($question->responses->count())
+                    <div>{{ round($answer->responses->count() * 100 / $question->responses->count()) }}%</div>
+                    @endif
+                </li>
                 @endforeach
             </ul>
 

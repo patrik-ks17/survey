@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-xl font-semibold leading-tight text-gray-800 text-center">
+        <h2 class="text-xl font-semibold leading-tight text-gray-800 ">
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
@@ -18,18 +18,18 @@
                 <div class="p-6 text-gray-900">
                     <ul class="list-group">
                         @foreach ($surveys as $survey)
-                            <li class="list-group-item">
-                                <a href="{{ $survey->path() }}">{{ $survey->title }}</a>
+                            <li class="list-group-item mt-2">
+                                <a href="{{ $survey->path() }}" class="text-info">{{ $survey->title }}</a>
                                 <small class="block">{{ $survey->purpose }}</small>
                                 <div class="mt-2">
                                     <small class="font-weight-bold">Share URL</small>
                                     <p>
-                                        <a href="{{ $survey->publicPath() }}">
+                                        <a href="{{ $survey->publicPath() }}" class="text-info">
                                             {{ $survey->publicPath() }}
                                         </a>
                                     </p>
                                 </div>
-                                
+
                             </li>
                         @endforeach
                     </ul>

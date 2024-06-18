@@ -24,6 +24,6 @@ class PollController extends Controller
 
         $poll->responses()->createMany($data['responses']);
 
-        return 'thank you';
+        return redirect($survey->path());
     }
 }
