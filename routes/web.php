@@ -31,6 +31,7 @@ Route::get('/survey/{survey}', [SurveyController::class, 'show']);
 
 Route::get('/survey/{survey}/questions/create', [QuestionController::class, 'create']);
 Route::post('/survey/{survey}/questions', [QuestionController::class, 'store']);
+Route::delete('/survey/{survey}/questions/{question}', [QuestionController::class, 'destroy']);
 
 Route::get('/surveys/{survey}-{slug}', [PollController::class, 'show']);
 Route::post('/surveys/{survey}-{slug}', [PollController::class, 'store']);

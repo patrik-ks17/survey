@@ -19,6 +19,15 @@
                 <li class="list-group-item">{{ $answer->answer }}</li>
                 @endforeach
             </ul>
+
+            <div class="card-footer flex justify-content-start">
+                <form action="/survey/{{ $survey->id }}/questions/{{ $question->id }}" method="post">
+                    @method('DELETE')
+                    @csrf
+
+                    <button type="submit" class="btn btn-sm btn-outline-danger">Delete Question</button>
+                </form>
+            </div>
         </div>
         @endforeach
 
